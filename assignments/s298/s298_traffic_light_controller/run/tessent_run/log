@@ -1,0 +1,102 @@
+/home/Mentor/tessent/bin/tessent -shell -dofile scan_insertion.do -logfile log -replace
+//  Warning: Tessent user documentation not found
+//  Tessent Shell  2022.4    Tue Nov 29 21:19:37 GMT 2022
+//                Unpublished work. Copyright 2022 Siemens
+//
+//      This material contains trade secrets or otherwise confidential 
+//  information owned by Siemens Industry Software Inc. or its affiliates 
+//   (collectively, "SISW"), or its licensors. Access to and use of this 
+//     information is strictly limited as set forth in the Customer's 
+//                   applicable agreements with SISW. 
+//
+//  Siemens software executing under x86-64 Linux on Mon Mar 10 14:53:46 IST 2025.
+//  64 bit version
+//  Host: APL4.kletech.ac.in (31644 MB RAM, 61035 MB Swap)
+//
+//  command: set_context dft -scan
+//  command: read_verilog ../../OUTPUTS/s298_syn_nangate.v
+//  command: read_cell_library ../../nangate/test_Nangate.mdt 
+//  Reading DFT Library file ../../nangate/test_Nangate.mdt
+//  Finished reading file ../../nangate/test_Nangate.mdt
+//  command: set_current_design s298
+//  command: analyze_control_signals -auto
+//  Warning: Rule FN1 violation occurs 2 times
+//  Warning: Rule FN4 violation occurs 14 times
+//  Flattening process completed, cell instances=73, gates=150, PIs=6, POs=6, CPU time=0.00 sec.
+//  ---------------------------------------------------------------------------
+//  Begin circuit learning analyses.
+//  --------------------------------
+//  Learning completed, CPU time=0.00 sec.
+//  ---------------------------------------------------------------------------
+//  Begin control signals identification analysis.
+//  ---------------------------------------------------------------------------
+//  Identified 1 clock control primary inputs.
+//     '/CK' (3) with off-state = 1.
+//  Identified 0 set control primary inputs.
+//  Identified 0 reset control primary inputs.
+//  Identified 0 read control primary inputs.
+//  Identified 0 write control primary inputs.
+//  ---------------------------------------------------------------------------
+//  Total number of internal lines is 42 (14 clocks, 14 sets , 14 resets, 0 reads, 0 writes).
+//  Total number of potentially clockable internal lines is 14 (14 clocks, 0 sets , 0 resets, 0 reads, 0 writes).
+//  Total number of not clockable internal lines is 28 (0 clocks, 14 sets , 14 resets, 0 reads, 0 writes).
+//  Total number of added primary input controls 1 (1 clocks, 0 sets , 0 resets, 0 reads, 0 writes).
+//  ---------------------------------------------------------------------------
+//  Warning: Flattened model deleted.
+//  command: check_design_rules 
+//  Warning: Rule FN1 violation occurs 2 times
+//  Warning: Rule FN4 violation occurs 14 times
+//  Flattening process completed, cell instances=73, gates=150, PIs=6, POs=6, CPU time=0.00 sec.
+//  ---------------------------------------------------------------------------
+//  Begin circuit learning analyses.
+//  --------------------------------
+//  Learning completed, CPU time=0.00 sec.
+//  ---------------------------------------------------------------------------
+//  Begin scan chain identification process, memory elements = 14,
+//  sequential library cells = 14.
+//  ---------------------------------------------------------------------------
+//  ---------------------------------------------------------------------------
+//  Begin scannability rules checking for 14 sequential library cells.
+//  ---------------------------------------------------------------------------
+//  14 sequential library cells identified as scannable.
+//  ---------------------------------------------------------------------------
+//  Begin scan clock rules checking.
+//  ---------------------------------------------------------------------------
+//  1 scan clock/set/reset lines have been identified.
+//  All scan clocks successfully passed off-state check.
+//  14 sequential cells passed clock stability checking.
+//  ---------------------------------------------------------------------------
+//  Begin shift register identification for 14 sequential library cells.
+//  ---------------------------------------------------------------------------
+//  No shift registers identified.
+//  Number of targeted sequential library cells = 14
+//  Warning: The tool may require a shift-capture clock during insertion, 
+//           but no 'shift_capture_clock' DFT signal was identified 
+//           and no TCLK source was specified using the command 'set_scan_signals -tclk'.
+//  Note: The system clock 'CK' will be used as the shift-capture clock, if needed.
+//  command: analyze_scan_chains 
+//  Chain allocation of 'unwrapped' mode completed:
+//         1 distributed chain of size 14
+//  command: insert_test_logic 
+=============================
+Test Logic Insertion Summary:
+=============================
+
+  Structural Data:
+  ----------------
+                           Added top-level port count:           3
+                                 Added instance count:           2
+
+  Logical Data:
+  -------------
+                           Added retiming logic count:           1
+                   Added scan chain count (unwrapped):           1
+
+//  Warning: Flattened model deleted.
+//  command: report_scan_elements > ./output/mcrb_scan_elements.txt
+//  Error: Failed to open file for writing ( ./output/mcrb_scan_elements.txt ).
+// 'DOFile scan_insertion.do' aborted at line 10
+//  command: write_design -output_file ../../OUTPUTS/mcrb_tessent_scan_net.v -replace
+//  command: set_system_mode setup
+//  command: open_visualizer 
+//  Note: Tessent Visualizer client successfully started and connected to the server.
