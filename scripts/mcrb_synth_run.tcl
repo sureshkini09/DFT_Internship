@@ -12,12 +12,12 @@ set_db syn_map_effort medium
 set_db syn_opt_effort medium
 
 #report
-report_timing > ../outputs/reports/mcrb_nangate_timing_report.rpt
-report_power > ../outputs/reports/mcrb_nangate_power_report.rpt
-report_area > ../outputs/reports/mcrb_nangate_area_report.rpt
-report_gates > ../outputs/reports/mcrb_nangate_gate_report.rpt
+#report_timing > ../outputs/reports/mcrb_nangate_timing_report.rpt
+#report_power > ../outputs/reports/mcrb_nangate_power_report.rpt
+#report_area > ../outputs/reports/mcrb_nangate_area_report.rpt
+#report_gates > ../outputs/reports/mcrb_nangate_gate_report.rpt
 
-write_hdl > ../outputs/netlist/mcrb_syn_nangate.v
-write_sdc > ../outputs/sdc/mcrb_sdc.sdc
+write_hdl > ../outputs/netlist/mcrb_syn_nangate_new.v
+#write_sdc > ../outputs/sdc/mcrb_sdc.sdc
 
-gui_show
+#gui_show
