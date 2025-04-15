@@ -8,6 +8,6 @@
 *.log
 *.log.*
 *.sig
-
+run
 pkg/
 src/
