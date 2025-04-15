@@ -11,6 +11,10 @@ set_db syn_generic_effort medium
 set_db syn_map_effort medium
 set_db syn_opt_effort medium
 
+syn_gen
+syn_map
+syn_opt
+
 #report
 #report_timing > ../outputs/reports/mcrb_nangate_timing_report.rpt
 #report_power > ../outputs/reports/mcrb_nangate_power_report.rpt
