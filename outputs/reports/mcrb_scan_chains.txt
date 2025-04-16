@@ -1,0 +1,9 @@
+
+===============================
+Scan Chains Created by the Tool
+===============================
+
+   Scan mode 'unwrapped' scan chains:
+   ----------------------------------
+      chain = chain0   group = dummy  input = /ts_si[0]  output = /ts_so[0]  length = 6
+

@@ -1,9 +1,0 @@
-===============================================================================================
-name                      type       length  si_so_clocks       state   is_non_scannable_reason
-------------------------  ---------  ------  -----------------  ------  -----------------------
-/\skew_addr_cntr_reg[4]   leaf_cell  1       +mc_rb_ef1_sclk_i  usable  --                     
-/\skew_addr_cntr_reg[3]   leaf_cell  1       +mc_rb_ef1_sclk_i  usable  --                     
-/\skew_addr_cntr_reg[1]   leaf_cell  1       +mc_rb_ef1_sclk_i  usable  --                     
-/\skew_addr_cntr_reg[2]   leaf_cell  1       +mc_rb_ef1_sclk_i  usable  --                     
-/\skew_addr_cntr_reg[0]   leaf_cell  1       +mc_rb_ef1_sclk_i  usable  --                     
-/mc_rb_fuse_vld_q_reg     leaf_cell  1       +mc_rb_ef1_sclk_i  usable  --                     
