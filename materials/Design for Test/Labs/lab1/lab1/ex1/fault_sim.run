@@ -1,0 +1,1 @@
+$TESSENT_PATH/tessent -shell -dofile fault_sim.do -logfile fault_sim.log -replace

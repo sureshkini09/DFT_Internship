@@ -1,0 +1,21 @@
+First and foremost, you must set the
+context to dft for memory BIST hardware to be created. Second, you must specify whether the
+design type to be read in is written in RTL. If so, you must specify -rtl. If the design to be read
+in is a gate-level Verilog netlist, you should specify -no_rtl.\
+
+If memory BIST has been inserted into a block that is now being integrated at a higher hierarchy
+level of the design, you must open the Tessent Shell Data Base (TSDB) of the child block (the
+memory BIST inserted sub_block or physical_block) using the open_tsdb command
+
+Memory BIST libraries are considered to be Tessent core descriptions (TCDs) in Tessent Shell
+and are loaded and referred to as TCDs. The memory BIST models for the LV flow are
+compatible with Tessent Shell without modification and are loaded and referred to in the flow as
+TCDs
+
+DEF (Design Exchange Format) file containing
+the placement information of the memories and a UPF (Unified Power Format) file describing
+the power domain associated with the memories.
+read_upf ../data/design/power/blockA.upf
+read_def ../data/design/layout/blockA.def
+
+

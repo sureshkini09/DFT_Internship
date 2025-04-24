@@ -1,0 +1,1 @@
+$TESSENT_PATH/tessent -shell -dofile atpg.do -logfile atpg.log -replace
