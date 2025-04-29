@@ -1,0 +1,147 @@
+MemoryTemplate(<memory_template>) {
+  Algorithm                         : <string>      ;
+  ATD                               : <boolean>     ; // default: off
+  BitGrouping                       : <int>         ; // default: auto
+  CellName                          : <string>      ;
+  ConcurrentRead                    : <boolean>     ; // default: off
+  ConcurrentReadPort                : <string>      ;
+  ConcurrentWrite                   : <boolean>     ; // default: off
+  ConcurrentWritePort               : <string>      ;
+  ECCCheckBitPositions              : <string>, ... ;
+  ECCCorrectableBits                : <int>         ; // default: 0
+  DataOutHoldWithInactiveReadEnable : <boolean>     ; // default: on
+  DataOutStage                      : <string>      ; // legal  : HoldingLatch (None) StrobingLatch StrobingFlop StrobingFlopSharedByAllPorts 
+  InternalScanLogic                 : <boolean>     ; // default: off
+  Library                           : <string>      ;
+  Architecture                      : <string>      ;
+  LogicalPorts                      : <string>      ;
+  MemoryHoldWithInactiveSelect      : <boolean>     ; // default: on
+  MemoryType                        : <string>      ; // legal  : ROM (SRAM) DRAM MRAM 
+  MilliWattsPerMegaHertz            : <real>        ; // default: Auto
+  MinHold                           : <time>        ; // default: 0
+  NumberOfBits                      : <int>         ; // default: Auto
+  NumberOfWords                     : <int>         ; // default: auto
+  ObservationLogic                  : <boolean>     ; // default: on
+  OperationSet                      : <string>      ;
+  PipelineDepth                     : <int>         ; // default: 0
+  MemoryGrouping                    : <boolean>     ; // default: Off
+  ReadOutOfRangeOK                  : <boolean>     ; // default: Off
+  RetentionTimeMax                  : <time>        ; // default: None { symbols: Auto None }
+  RomContentsFile                   : <file_path>   ;
+  SelectDuringWriteThru             : <boolean>     ; // default: Off
+  ShadowRead                        : <boolean>     ; // default: Auto
+  ShadowWrite                       : <boolean>     ; // default: Off
+  ShadowWriteOK                     : <boolean>     ; // default: Off
+  TransparentMode                   : <string>      ; // legal  : (SyncMux) None AsyncMux AsyncWriteThru Mux 
+  WriteOutOfRange                   : <boolean>     ; // default: off
+  Port(<name>) {
+    BusRange           : <string>      ;
+    BistOrTmActive     : <boolean>     ; // default: off
+    Direction          : <string>      ; // legal  : (input) output inout 
+    DisableDuringScan  : <boolean>     ; // default: Auto
+    Function           : <string>      ; // legal  : Address BistClock BistEn BistOn Clock Data GroupWriteEnable LogicHigh LogicLow (None) Open OutputEnable ReadEnable ScanTest Select ShadowAddressEnable ShiftEnable WriteEnable CAS RAS User0 User1 User2 User3 User4 User5 User6 User7 User8 User9 User10 User11 User12 User13 User14 User15 User16 User17 User18 User19 User20 User21 User22 User23 Refresh Activate Precharge ValidData BisrParallelData BisrSerialData BisrClock BisrReset BisrScanEnable MemoryRepair ECCEnable TrimParallelData 
+    BitsPerWriteEnable : <int>         ; // default: 1
+    LogicalPort        : <string>, ... ;
+    Polarity           : <string>      ; // legal  : activelow (activehigh) 
+    Retimed            : <boolean>     ; // default: Off
+    SafeValue          : <value>       ; // default: x
+    EmbeddedTestLogic {
+      TestInput  : <string> ;
+      TestOutput : <string> ;
+    }
+  }
+  AddressCounter {
+    Function(<string>) { // legal: address columnaddress rowaddress bankaddress
+      LogicalAddressMap {
+        RowAddress(<range>) : <map> ; // repeatable
+        ColumnAddress(<range>) : <map> ; // repeatable
+        BankAddress(<range>) : <map> ; // repeatable
+      }
+      CountRange : <range> ;
+    }
+  }
+  PhysicalAddressMap {
+    BankAddress(<bit>) : <expression> ; // repeatable
+    ColumnAddress(<bit>) : <expression> ; // repeatable
+    RowAddress(<bit>) : <expression> ; // repeatable
+  }
+  PhysicalDataMap {
+    Data(<bit>) : <expression> ; // repeatable
+  }
+  GroupWriteEnableMap {
+    GroupWriteEnable(<bit>) : <map>, ... ; // repeatable
+  }
+  RedundancyAnalysis {
+    RowSegmentRange {
+      SegmentAddress(<bit>) : <address_port> ; // repeatable
+    }
+    RowSegment(<string>) {
+      SegmentCountRange       : <range> ;
+      ColumnSegmentCountRange : <range> ;
+      RowSegmentCountRange    : <range> ;
+      NumberOfSpareElements   : <int>   ; // default: 1
+      FuseSet {
+        Fuse(<bit>) : <string> ; // repeatable
+      }
+      PinMap {
+        SpareElement {
+          RepairEnable : <string> ;
+          Fuse(<bit>) : <string> ; // repeatable
+          LogicLow : <string> ; // repeatable
+          LogicHigh : <string> ; // repeatable
+        }
+      }
+    }
+    ColumnSegmentRange {
+      SegmentAddress(<bit>) : <address_port> ; // repeatable
+    }
+    ColumnSegment(<string>) {
+      SegmentCountRange       : <range>          ;
+      ColumnSegmentCountRange : <range>          ;
+      RowSegmentCountRange    : <range>          ;
+      NumberOfSpareElements   : <int>            ; // default: 1
+      ShiftedIORange          : <port_list>, ... ;
+      FuseSet {
+        Fuse(<bit>) : <string> ; // repeatable
+        FuseMap(<range>) {
+          NotAllocated : <binary> ; // default: 0
+          ShiftedIO(<io>) : <binary> ; // repeatable
+        }
+      }
+      PinMap {
+        SpareElement {
+          RepairEnable : <string> ;
+          Fuse(<bit>) : <string> ; // repeatable
+          FuseMap(<bit>) : <string> ; // repeatable
+          LogicLow : <string> ; // repeatable
+          LogicHigh : <string> ; // repeatable
+        }
+      }
+    }
+  }
+  IclPorts {
+    DataInPort(<port_name>) {
+      Attribute(<attrib_name>) : <attrib_val> ; // repeatable
+    }
+    DataOutPort(<port_name>) {
+      Attribute(<attrib_name>) : <attrib_val> ; // repeatable
+    }
+  }
+  MemoryGroupAddressDecoding(<address>) {
+    Code(<value>) : <physical_memory_id>, ... ; // repeatable
+  }
+  PhysicalToLogicalMapping(<physical_memory_id>) {
+    MemoryTemplate     : <name>   ;
+    ParentModuleName   : <string> ;
+    MemoryInstanceName : <string> ;
+    PinMappings {
+      PhysicalMemoryLogicalPort(<index>) : <string> ; // repeatable
+      PhysicalMemoryDataInput(<index>) : <string> ; // repeatable
+      PhysicalMemoryDataOutput(<index>) : <string> ; // repeatable
+      PhysicalMemoryAddress(<index>) : <string> ; // repeatable
+      PhysicalMemoryWriteAddress(<index>) : <string> ; // repeatable
+      PhysicalMemoryReadAddress(<index>) : <string> ; // repeatable
+      PhysicalMemoryGroupWriteEnable(<index>) : <string> ; // repeatable
+    }
+  }
+}

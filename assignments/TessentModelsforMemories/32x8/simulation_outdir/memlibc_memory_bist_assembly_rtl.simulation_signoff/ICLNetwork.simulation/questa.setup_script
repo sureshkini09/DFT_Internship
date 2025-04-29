@@ -1,0 +1,11 @@
+#!/bin/sh
+export PATH='.:/home/Mentor/tessent/bin:/home/mentorgraphics/tanner2022/tanner/bin:/home/mentorgraphics/Nitro/nitroPack-2020.2.R1/nitro/bin:/home/mentorgraphics/Oasys/Oasys-RTL-2022.1.R1/bin:/home/Mentor/questasim/bin:/home/Mentor/caliber/aoi_cal_2022.4_37.20/bin:/home/mentorgraphics/hdl/bin:/home/mentorgraphics/formalpro/bin:/home/mentorgraphics/amsv/amsv/bin:/home/Mentor/quastacdc/V2022.4.Linux_64.aol/bin:/home/mentorgraphics/precision/Mgc_home/bin:/home/mentorgraphics/Rqtracer/bin.pclinux:/usr/local/bin/bin:/home/mentorgraphics/catapault/Mgc_home/bin:/home/mentorgraphics/Vista/bin:/home/mentorgraphics/questa/questasim/bin:/home/mentorgraphics/questadc/linux_x86_64/bin:/home/01fe21bec255/.local/bin:/home/01fe21bec255/bin:/usr/share/Modules/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin'
+export MTI_VCO_MODE='64'
+export LD_LIBRARY_PATH='/home/Mentor/tessent/lnx-x86/lib64'
+export JAGUAR_HOME='/home/Mentor/tessent'
+export MGLS_HOME='/home/Mentor/tessent/lnx-x86/bin64/mgls/'
+export MODULES_USE_COMPAT_VERSION='0'
+export VTE_VERSION='5204'
+export LM_LICENSE_FILE='1717@14.139.1.126'
+export MGLS_LICENSE_FILE='1717@14.139.1.126'
+if [ "$TESSENT_HOME" = "" ] ; then export TESSENT_HOME='/home/Mentor/tessent'; fi

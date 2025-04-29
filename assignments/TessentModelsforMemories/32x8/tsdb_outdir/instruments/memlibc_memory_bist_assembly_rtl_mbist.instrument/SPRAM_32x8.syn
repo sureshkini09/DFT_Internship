@@ -1,0 +1,41 @@
+/*
+----------------------------------------------------------------------------------
+-                                                                                -
+-  Unpublished work. Copyright 2022 Siemens                                      -
+-                                                                                -
+-  This material contains trade secrets or otherwise confidential                -
+-  information owned by Siemens Industry Software Inc. or its affiliates         -
+-  (collectively, SISW), or its licensors. Access to and use of this             -
+-  information is strictly limited as set forth in the Customer's                -
+-  applicable agreements with SISW.                                              -
+-                                                                                -
+----------------------------------------------------------------------------------
+-  File created by: Tessent Shell                                                -
+-          Version: 2022.4                                                       -
+-       Created on: Mon Apr 28 14:29:37 IST 2025                                 -
+----------------------------------------------------------------------------------
+
+
+*/
+`celldefine
+module SPRAM_32x8 (
+    
+    CE,
+    WEB,
+    OEB,
+    CSB,
+    A,
+    I,
+    O
+
+);
+input           CE;
+input           WEB;
+input           OEB;
+input           CSB;
+input  [4:0]    A;
+input  [7:0]    I;
+output [7:0]    O;
+
+endmodule
+`endcelldefine

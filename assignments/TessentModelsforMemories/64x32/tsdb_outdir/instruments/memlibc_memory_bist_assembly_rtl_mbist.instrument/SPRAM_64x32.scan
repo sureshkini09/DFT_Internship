@@ -1,0 +1,345 @@
+/*
+----------------------------------------------------------------------------------
+-                                                                                -
+-  Unpublished work. Copyright 2022 Siemens                                      -
+-                                                                                -
+-  This material contains trade secrets or otherwise confidential                -
+-  information owned by Siemens Industry Software Inc. or its affiliates         -
+-  (collectively, SISW), or its licensors. Access to and use of this             -
+-  information is strictly limited as set forth in the Customer's                -
+-  applicable agreements with SISW.                                              -
+-                                                                                -
+----------------------------------------------------------------------------------
+-  File created by: Tessent Shell                                                -
+-          Version: 2022.4                                                       -
+-       Created on: Mon Apr 28 14:46:49 IST 2025                                 -
+----------------------------------------------------------------------------------
+
+
+*/
+`ifdef MGC_INHIBIT_MEM_SCAN_MODEL
+`else
+
+`celldefine
+module SPRAM_64x32 (
+    
+    CE,
+    WEB,
+    OEB,
+    CSB,
+    A,
+    I,
+    O
+
+);
+input           CE;
+input           WEB;
+input           OEB;
+input           CSB;
+input  [5:0]    A;
+input  [31:0]   I;
+output [31:0]   O;
+
+
+//------------
+//-- Wires  --
+//------------
+// {{{
+wire CE_BIT0_MUXED;
+wire A_BIT5_MUXED;
+wire A_BIT4_MUXED;
+wire A_BIT3_MUXED;
+wire A_BIT2_MUXED;
+wire A_BIT1_MUXED;
+wire A_BIT0_MUXED;
+wire WEB_BIT0_MUXED;
+wire OEB_BIT0_MUXED;
+wire CSB_BIT0_MUXED;
+wire I_BIT31_MUXED;
+wire I_BIT30_MUXED;
+wire I_BIT29_MUXED;
+wire I_BIT28_MUXED;
+wire I_BIT27_MUXED;
+wire I_BIT26_MUXED;
+wire I_BIT25_MUXED;
+wire I_BIT24_MUXED;
+wire I_BIT23_MUXED;
+wire I_BIT22_MUXED;
+wire I_BIT21_MUXED;
+wire I_BIT20_MUXED;
+wire I_BIT19_MUXED;
+wire I_BIT18_MUXED;
+wire I_BIT17_MUXED;
+wire I_BIT16_MUXED;
+wire I_BIT15_MUXED;
+wire I_BIT14_MUXED;
+wire I_BIT13_MUXED;
+wire I_BIT12_MUXED;
+wire I_BIT11_MUXED;
+wire I_BIT10_MUXED;
+wire I_BIT9_MUXED;
+wire I_BIT8_MUXED;
+wire I_BIT7_MUXED;
+wire I_BIT6_MUXED;
+wire I_BIT5_MUXED;
+wire I_BIT4_MUXED;
+wire I_BIT3_MUXED;
+wire I_BIT2_MUXED;
+wire I_BIT1_MUXED;
+wire I_BIT0_MUXED;
+wire O_BIT31_DRIVER;
+wire O_BIT30_DRIVER;
+wire O_BIT29_DRIVER;
+wire O_BIT28_DRIVER;
+wire O_BIT27_DRIVER;
+wire O_BIT26_DRIVER;
+wire O_BIT25_DRIVER;
+wire O_BIT24_DRIVER;
+wire O_BIT23_DRIVER;
+wire O_BIT22_DRIVER;
+wire O_BIT21_DRIVER;
+wire O_BIT20_DRIVER;
+wire O_BIT19_DRIVER;
+wire O_BIT18_DRIVER;
+wire O_BIT17_DRIVER;
+wire O_BIT16_DRIVER;
+wire O_BIT15_DRIVER;
+wire O_BIT14_DRIVER;
+wire O_BIT13_DRIVER;
+wire O_BIT12_DRIVER;
+wire O_BIT11_DRIVER;
+wire O_BIT10_DRIVER;
+wire O_BIT9_DRIVER;
+wire O_BIT8_DRIVER;
+wire O_BIT7_DRIVER;
+wire O_BIT6_DRIVER;
+wire O_BIT5_DRIVER;
+wire O_BIT4_DRIVER;
+wire O_BIT3_DRIVER;
+wire O_BIT2_DRIVER;
+wire O_BIT1_DRIVER;
+wire O_BIT0_DRIVER;
+// }}}
+
+//---------------
+//-- Main Code --
+//---------------
+
+//-----------------
+//-- Clock ports --
+//-----------------
+// {{{
+assign CE_BIT0_MUXED  = CE;
+// }}}
+
+//-------------------
+//-- Address ports --
+//-------------------
+// {{{
+assign A_BIT5_MUXED  = A[5];
+assign A_BIT4_MUXED  = A[4];
+assign A_BIT3_MUXED  = A[3];
+assign A_BIT2_MUXED  = A[2];
+assign A_BIT1_MUXED  = A[1];
+assign A_BIT0_MUXED  = A[0];
+// }}}
+
+//-------------------
+//-- Control ports --
+//-------------------
+// {{{
+assign WEB_BIT0_MUXED  = WEB;
+assign OEB_BIT0_MUXED  = OEB;
+assign CSB_BIT0_MUXED  = CSB;
+// }}}
+
+//----------------------
+//-- Data input ports --
+//----------------------
+// {{{
+assign I_BIT31_MUXED  = I[31];
+assign I_BIT30_MUXED  = I[30];
+assign I_BIT29_MUXED  = I[29];
+assign I_BIT28_MUXED  = I[28];
+assign I_BIT27_MUXED  = I[27];
+assign I_BIT26_MUXED  = I[26];
+assign I_BIT25_MUXED  = I[25];
+assign I_BIT24_MUXED  = I[24];
+assign I_BIT23_MUXED  = I[23];
+assign I_BIT22_MUXED  = I[22];
+assign I_BIT21_MUXED  = I[21];
+assign I_BIT20_MUXED  = I[20];
+assign I_BIT19_MUXED  = I[19];
+assign I_BIT18_MUXED  = I[18];
+assign I_BIT17_MUXED  = I[17];
+assign I_BIT16_MUXED  = I[16];
+assign I_BIT15_MUXED  = I[15];
+assign I_BIT14_MUXED  = I[14];
+assign I_BIT13_MUXED  = I[13];
+assign I_BIT12_MUXED  = I[12];
+assign I_BIT11_MUXED  = I[11];
+assign I_BIT10_MUXED  = I[10];
+assign I_BIT9_MUXED  = I[9];
+assign I_BIT8_MUXED  = I[8];
+assign I_BIT7_MUXED  = I[7];
+assign I_BIT6_MUXED  = I[6];
+assign I_BIT5_MUXED  = I[5];
+assign I_BIT4_MUXED  = I[4];
+assign I_BIT3_MUXED  = I[3];
+assign I_BIT2_MUXED  = I[2];
+assign I_BIT1_MUXED  = I[1];
+assign I_BIT0_MUXED  = I[0];
+// }}}
+
+//-----------------------
+//-- Data output ports --
+//-----------------------
+// {{{
+assign O_BIT31_DRIVER  = 1'bz;
+assign O_BIT30_DRIVER  = 1'bz;
+assign O_BIT29_DRIVER  = 1'bz;
+assign O_BIT28_DRIVER  = 1'bz;
+assign O_BIT27_DRIVER  = 1'bz;
+assign O_BIT26_DRIVER  = 1'bz;
+assign O_BIT25_DRIVER  = 1'bz;
+assign O_BIT24_DRIVER  = 1'bz;
+assign O_BIT23_DRIVER  = 1'bz;
+assign O_BIT22_DRIVER  = 1'bz;
+assign O_BIT21_DRIVER  = 1'bz;
+assign O_BIT20_DRIVER  = 1'bz;
+assign O_BIT19_DRIVER  = 1'bz;
+assign O_BIT18_DRIVER  = 1'bz;
+assign O_BIT17_DRIVER  = 1'bz;
+assign O_BIT16_DRIVER  = 1'bz;
+assign O_BIT15_DRIVER  = 1'bz;
+assign O_BIT14_DRIVER  = 1'bz;
+assign O_BIT13_DRIVER  = 1'bz;
+assign O_BIT12_DRIVER  = 1'bz;
+assign O_BIT11_DRIVER  = 1'bz;
+assign O_BIT10_DRIVER  = 1'bz;
+assign O_BIT9_DRIVER  = 1'bz;
+assign O_BIT8_DRIVER  = 1'bz;
+assign O_BIT7_DRIVER  = 1'bz;
+assign O_BIT6_DRIVER  = 1'bz;
+assign O_BIT5_DRIVER  = 1'bz;
+assign O_BIT4_DRIVER  = 1'bz;
+assign O_BIT3_DRIVER  = 1'bz;
+assign O_BIT2_DRIVER  = 1'bz;
+assign O_BIT1_DRIVER  = 1'bz;
+assign O_BIT0_DRIVER  = 1'bz;
+assign O[31]    = O_BIT31_DRIVER;
+assign O[30]    = O_BIT30_DRIVER;
+assign O[29]    = O_BIT29_DRIVER;
+assign O[28]    = O_BIT28_DRIVER;
+assign O[27]    = O_BIT27_DRIVER;
+assign O[26]    = O_BIT26_DRIVER;
+assign O[25]    = O_BIT25_DRIVER;
+assign O[24]    = O_BIT24_DRIVER;
+assign O[23]    = O_BIT23_DRIVER;
+assign O[22]    = O_BIT22_DRIVER;
+assign O[21]    = O_BIT21_DRIVER;
+assign O[20]    = O_BIT20_DRIVER;
+assign O[19]    = O_BIT19_DRIVER;
+assign O[18]    = O_BIT18_DRIVER;
+assign O[17]    = O_BIT17_DRIVER;
+assign O[16]    = O_BIT16_DRIVER;
+assign O[15]    = O_BIT15_DRIVER;
+assign O[14]    = O_BIT14_DRIVER;
+assign O[13]    = O_BIT13_DRIVER;
+assign O[12]    = O_BIT12_DRIVER;
+assign O[11]    = O_BIT11_DRIVER;
+assign O[10]    = O_BIT10_DRIVER;
+assign O[9]     = O_BIT9_DRIVER;
+assign O[8]     = O_BIT8_DRIVER;
+assign O[7]     = O_BIT7_DRIVER;
+assign O[6]     = O_BIT6_DRIVER;
+assign O[5]     = O_BIT5_DRIVER;
+assign O[4]     = O_BIT4_DRIVER;
+assign O[3]     = O_BIT3_DRIVER;
+assign O[2]     = O_BIT2_DRIVER;
+assign O[1]     = O_BIT1_DRIVER;
+assign O[0]     = O_BIT0_DRIVER;
+// }}}
+
+`ifdef LV_scanmodel
+// {{{
+lv_assumed_mbist_mem_in( A_BIT5_MUXED );
+lv_assumed_mbist_mem_in( A_BIT4_MUXED );
+lv_assumed_mbist_mem_in( A_BIT3_MUXED );
+lv_assumed_mbist_mem_in( A_BIT2_MUXED );
+lv_assumed_mbist_mem_in( A_BIT1_MUXED );
+lv_assumed_mbist_mem_in( A_BIT0_MUXED );
+lv_assumed_mbist_mem_in( WEB_BIT0_MUXED );
+lv_assumed_mbist_mem_in( OEB_BIT0_MUXED );
+lv_assumed_mbist_mem_in( CSB_BIT0_MUXED );
+lv_assumed_mbist_mem_in( I_BIT31_MUXED );
+lv_assumed_mbist_mem_in( I_BIT30_MUXED );
+lv_assumed_mbist_mem_in( I_BIT29_MUXED );
+lv_assumed_mbist_mem_in( I_BIT28_MUXED );
+lv_assumed_mbist_mem_in( I_BIT27_MUXED );
+lv_assumed_mbist_mem_in( I_BIT26_MUXED );
+lv_assumed_mbist_mem_in( I_BIT25_MUXED );
+lv_assumed_mbist_mem_in( I_BIT24_MUXED );
+lv_assumed_mbist_mem_in( I_BIT23_MUXED );
+lv_assumed_mbist_mem_in( I_BIT22_MUXED );
+lv_assumed_mbist_mem_in( I_BIT21_MUXED );
+lv_assumed_mbist_mem_in( I_BIT20_MUXED );
+lv_assumed_mbist_mem_in( I_BIT19_MUXED );
+lv_assumed_mbist_mem_in( I_BIT18_MUXED );
+lv_assumed_mbist_mem_in( I_BIT17_MUXED );
+lv_assumed_mbist_mem_in( I_BIT16_MUXED );
+lv_assumed_mbist_mem_in( I_BIT15_MUXED );
+lv_assumed_mbist_mem_in( I_BIT14_MUXED );
+lv_assumed_mbist_mem_in( I_BIT13_MUXED );
+lv_assumed_mbist_mem_in( I_BIT12_MUXED );
+lv_assumed_mbist_mem_in( I_BIT11_MUXED );
+lv_assumed_mbist_mem_in( I_BIT10_MUXED );
+lv_assumed_mbist_mem_in( I_BIT9_MUXED );
+lv_assumed_mbist_mem_in( I_BIT8_MUXED );
+lv_assumed_mbist_mem_in( I_BIT7_MUXED );
+lv_assumed_mbist_mem_in( I_BIT6_MUXED );
+lv_assumed_mbist_mem_in( I_BIT5_MUXED );
+lv_assumed_mbist_mem_in( I_BIT4_MUXED );
+lv_assumed_mbist_mem_in( I_BIT3_MUXED );
+lv_assumed_mbist_mem_in( I_BIT2_MUXED );
+lv_assumed_mbist_mem_in( I_BIT1_MUXED );
+lv_assumed_mbist_mem_in( I_BIT0_MUXED );
+lv_assumed_mbist_mem_out( O_BIT31_DRIVER );
+lv_assumed_mbist_mem_out( O_BIT30_DRIVER );
+lv_assumed_mbist_mem_out( O_BIT29_DRIVER );
+lv_assumed_mbist_mem_out( O_BIT28_DRIVER );
+lv_assumed_mbist_mem_out( O_BIT27_DRIVER );
+lv_assumed_mbist_mem_out( O_BIT26_DRIVER );
+lv_assumed_mbist_mem_out( O_BIT25_DRIVER );
+lv_assumed_mbist_mem_out( O_BIT24_DRIVER );
+lv_assumed_mbist_mem_out( O_BIT23_DRIVER );
+lv_assumed_mbist_mem_out( O_BIT22_DRIVER );
+lv_assumed_mbist_mem_out( O_BIT21_DRIVER );
+lv_assumed_mbist_mem_out( O_BIT20_DRIVER );
+lv_assumed_mbist_mem_out( O_BIT19_DRIVER );
+lv_assumed_mbist_mem_out( O_BIT18_DRIVER );
+lv_assumed_mbist_mem_out( O_BIT17_DRIVER );
+lv_assumed_mbist_mem_out( O_BIT16_DRIVER );
+lv_assumed_mbist_mem_out( O_BIT15_DRIVER );
+lv_assumed_mbist_mem_out( O_BIT14_DRIVER );
+lv_assumed_mbist_mem_out( O_BIT13_DRIVER );
+lv_assumed_mbist_mem_out( O_BIT12_DRIVER );
+lv_assumed_mbist_mem_out( O_BIT11_DRIVER );
+lv_assumed_mbist_mem_out( O_BIT10_DRIVER );
+lv_assumed_mbist_mem_out( O_BIT9_DRIVER );
+lv_assumed_mbist_mem_out( O_BIT8_DRIVER );
+lv_assumed_mbist_mem_out( O_BIT7_DRIVER );
+lv_assumed_mbist_mem_out( O_BIT6_DRIVER );
+lv_assumed_mbist_mem_out( O_BIT5_DRIVER );
+lv_assumed_mbist_mem_out( O_BIT4_DRIVER );
+lv_assumed_mbist_mem_out( O_BIT3_DRIVER );
+lv_assumed_mbist_mem_out( O_BIT2_DRIVER );
+lv_assumed_mbist_mem_out( O_BIT1_DRIVER );
+lv_assumed_mbist_mem_out( O_BIT0_DRIVER );
+// }}}
+`endif
+
+endmodule
+`endcelldefine
+
+`endif

@@ -1,0 +1,61 @@
+MemoryTemplate(SPRAM_32x8) {
+  // ---- Memory Characteristics ----
+  MemoryType : SRAM; // Type of memory (SRAM)
+  CellName : SPRAM_32x8; // Unique identifier for this memory cell
+  LogicalPorts : 1RW; // One port supporting both read and write
+  OperationSet : Sync; // Synchronous read/write operations
+  Algorithm : SMarch; // Built-in self-test algorithm (March)
+  BitGrouping : 1; // Number of bits grouped per data operation
+  NumberOfWords : 32; // Total addressable words in the memory (increased from 16)
+  NumberOfBits : 8; // Data width (bits per word, increased from 4)
+  ObservationLogic : Off; // Disable observation logic for test
+  InternalScanLogic : Off; // Disable internal scan chains
+  ShadowRead : Off; // No shadow read support
+  TransparentMode : None; // No transparent mode enabled
+  MinHold : 0.00; // Minimum hold time (in ns)
+  MilliWattsPerMegaHertz : 0.0; // Power consumption per MHz (mW/MHz)
+
+  // ---- Address Counter Configuration ----
+  AddressCounter {
+    Function(Address) {
+      LogicalAddressMap {
+        ColumnAddress[0] : Address[0]; // Map physical column bits to address bits [0:2]
+        RowAddress [3:0] : Address[1:4]; // Map physical row bits to address bits [3:4]     
+      }
+    }
+    Function(RowAddress) { CountRange [0:15]; } // Row address cycles through 0 to 4 (increased range)
+    Function(ColumnAddress) { CountRange [0:1]; } // Column address cycles through 0 to 7 (increased range)
+  }
+
+  // ---- Physical Pin Mapping for Address ----
+  PhysicalAddressMap {
+    ColumnAddress[0] : c[0]; // Pin c[0] drives column bit 0
+    ColumnAddress[1] : c[1]; // Pin c[1] drives column bit 1
+    //ColumnAddress[2] : c[2]; // Pin c[2] drives column bit 2 (added for 32 words)
+    RowAddress[0] : r[0]; // Pin r[0] drives row bit 0
+    RowAddress[1] : r[1]; // Pin r[1] drives row bit 1
+RowAddress[2] : r[2]; // Pin r[1] drives row bit 1
+RowAddress[3] : r[3]; // Pin r[1] drives row bit 1
+RowAddress[4] : r[4]; // Pin r[1] drives row bit 1
+RowAddress[5] : r[5]; // Pin r[1] drives row bit 1
+RowAddress[6] : r[6]; // Pin r[1] drives row bit 1
+RowAddress[7] : r[7]; // Pin r[1] drives row bit 1
+RowAddress[8] : r[8]; // Pin r[1] drives row bit 1
+RowAddress[9] : r[9]; // Pin r[1] drives row bit 1
+RowAddress[10] : r[10]; // Pin r[1] drives row bit 1
+RowAddress[11] : r[11]; // Pin r[1] drives row bit 1
+RowAddress[12] : r[12]; // Pin r[1] drives row bit 1
+RowAddress[13] : r[13]; // Pin r[1] drives row bit 1
+RowAddress[14] : r[14]; // Pin r[1] drives row bit 1
+RowAddress[15] : r[15]; // Pin r[1] drives row bit 1
+  }
+
+  // ---- Port Definitions ----
+  Port(A[4:0]) { Direction : Input; Function : Address; } // 5-bit address input bus (increased from 4-bit)
+  Port(CE) { Direction : Input; Function : Clock; Polarity : ActiveHigh; } // Clock enable (active high)
+  Port(WEB) { Direction : Input; Function : WriteEnable; Polarity : ActiveLow; } // Write enable (active low)
+  Port(OEB) { Direction : Input; Function : OutputEnable; Polarity : ActiveLow; } // Output enable (active low)
+  Port(CSB) { Direction : Input; Function : Select; Polarity : ActiveLow; } // Chip select (active low)
+  Port(I[7:0]){ Direction : Input; Function : Data; } // 8-bit data input bus (increased from 4-bit)
+  Port(O[7:0]){ Direction : Output; Function : Data; } // 8-bit data output bus (increased from 4-bit)
+}

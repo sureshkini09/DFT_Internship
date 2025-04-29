@@ -1,0 +1,48 @@
+emoryTemplate(SPRAM_16x4) {
+  // ---- Memory Characteristics ----
+  MemoryType : SRAM; // Type of memory (SRAM)
+  CellName : SPRAM_16x4; // Unique identifier for this memory cell
+  LogicalPorts : 1RW; // One port supporting both read and write
+  OperationSet : Sync; // Synchronous read/write operations
+  Algorithm : SMarch; // Built-in self-test algorithm (March)
+  BitGrouping : 1; // Number of bits grouped per data operation
+  NumberOfWords : 16; // Total addressable words in the memory
+  NumberOfBits : 4; // Data width (bits per word)
+  ObservationLogic : Off; // Disable observation logic for test
+  InternalScanLogic : Off; // Disable internal scan chains
+  ShadowRead : Off; // No shadow read support
+  TransparentMode : None; // No transparent mode enabled
+  MinHold : 0.00; // Minimum hold time (in ns)
+  MilliWattsPerMegaHertz : 0.0; // Power consumption per MHz (mW/MHz)
+
+  // ---- Address Counter Configuration ----
+  AddressCounter {
+    Function(Address) {
+      LogicalAddressMap {
+        ColumnAddress[1:0] : Address[0:1]; // Map physical column bits to address bits [0:1]
+        RowAddress [1:0] : Address[3:2]; // Map physical row bits to address bits [2:3]
+      }
+    }
+    Function(RowAddress) { CountRange [0:3]; } // Row address cycles through 0 to 3
+    Function(ColumnAddress) { CountRange [0:3]; } // Column address cycles through 0 to 3
+  }
+
+  // ---- Physical Pin Mapping for Address ----
+  PhysicalAddressMap {
+    ColumnAddress[0] : c[0]; // Pin c[0] drives column bit 0
+    ColumnAddress[1] : c[1]; // Pin c[1] drives column bit 1
+    RowAddress[0] : r[0]; // Pin r[0] drives row bit 0
+    RowAddress[1] : r[1]; // Pin r[1] drives row bit 1
+  }
+
+  // ---- Port Definitions ----
+  Port(A[3:0]) { Direction : Input; Function : Address; } // 4-bit address input bus
+  Port(CE) { Direction : Input; Function : Clock; Polarity : ActiveHigh; } // Clock enable (active high)
+  Port(WEB) { Direction : Input; Function : WriteEnable; Polarity : ActiveLow; } // Write enable (active low)
+  Port(OEB) { Direction : Input; Function : OutputEnable; Polarity : ActiveLow; } // Output enable (active low)
+  Port(CSB) { Direction : Input; Function : Select; Polarity : ActiveLow; } // Chip select (active low)
+  Port(I[3:0]){ Direction : Input; Function : Data; } // 4-bit data input bus
+  Port(O[3:0]){ Direction : Output; Function : Data; } // 4-bit data output bus
+}
+
+

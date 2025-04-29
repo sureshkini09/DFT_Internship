@@ -1,0 +1,3 @@
+ -y /jk/SCLPDK_V3.0_KIT/scl180/memory/spram/6M1L/SPRAM_32x8
+ -v $TESSENT_HOME/lnx-x86/lib64/hdleng/lib/dft_sim.v
+ +libext+.vb+.vb.gz+.v+.v.gz+.vg+.vg.gz

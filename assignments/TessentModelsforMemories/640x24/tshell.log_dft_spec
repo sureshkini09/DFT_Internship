@@ -1,0 +1,50 @@
+/home/Mentor/tessent/bin/tessent -shell -dofile dft_spec.do -log tshell.log_dft_spec -replace
+//  Warning: Tessent user documentation not found
+//  Tessent Shell  2022.4    Tue Nov 29 21:19:37 GMT 2022
+//                Unpublished work. Copyright 2022 Siemens
+//
+//      This material contains trade secrets or otherwise confidential 
+//  information owned by Siemens Industry Software Inc. or its affiliates 
+//   (collectively, "SISW"), or its licensors. Access to and use of this 
+//     information is strictly limited as set forth in the Customer's 
+//                   applicable agreements with SISW. 
+//
+//  Siemens software executing under x86-64 Linux on Mon Apr 28 15:12:39 IST 2025.
+//  64 bit version
+//  Host: APL3.kletech.ac.in (31578 MB RAM, 61034 MB Swap)
+//
+//  command: #-----------------------------------------------------------
+//  command: # This file created by : memlibCertify
+//  command: #     Software version : 2022.4
+//  command: #           Created on : 04/28/25 15:12:15
+//  command: #-----------------------------------------------------------
+//  command: # --
+//  command: # -- Dft Insertion
+//  command: # --
+//  command: set bist_clk_period 10ns
+//  command: set design_name memlibc_memory_bist_assembly
+//  command: set_context dft -rtl
+//  command: read_core_descriptions spram640x24.memlib
+//  command: foreach ext [list vb v vg] {
+//             foreach fname [lsort [glob -nocomplain -directory ../6M1L/SPRAM_640x24/ *.$ext]] {
+//               read_verilog $fname -exclude_from_file_dictionary
+//             }
+//           }
+//  sub-command: read_verilog ../6M1L/SPRAM_640x24/SPRAM_640x24.v -exclude_from_file_dictionary 
+//  command: set assembly_file_path  [get_tsdb_output_directory]/memory_bist_assemblies/${design_name}.[get_defaults_value DftSpecification/rtl_extension]
+//  command: set dft_spec_file_path  [get_tsdb_output_directory]/dft_inserted_designs/${design_name}_rtl.dft_spec
+//  command: if { [file exists $assembly_file_path] } {
+//             file delete $assembly_file_path
+//           }
+//  command: create_memory_certification_design -design_name $design_name -clock_period $bist_clk_period
+//  Warning: File: ../6M1L/SPRAM_640x24/SPRAM_640x24.v, Line: 503:  Module 'SPRAM_640x24_behave' contains unsupported net 'memoryError'.
+//  Writing design ./tsdb_outdir/memory_bist_assemblies/memlibc_memory_bist_assembly.v
+//  Warning: File: /home/01fe21bec255/DFT_Internship/assignments/TessentModelsforMemories/640x24/../6M1L/SPRAM_640x24/SPRAM_640x24.v, Line: 503:  Module 'SPRAM_640x24_behave' contains unsupported net 'memoryError'.
+//  Error: /Core(SPRAM_640x24)/Memory/NumberOfWords
+//         Read from file: spram640x24.memlib, line number: 8
+//         The property value NumberOfWords is 640.
+//         It cannot be smaller than the product of row and column, and bank CountRange properties (1024)
+//         specified in the AddressCounter wrapper if the memory has only one bank.
+//         Set the property value to 1024.
+// 'DOFile dft_spec.do' aborted at line 25
+//  command: exit 

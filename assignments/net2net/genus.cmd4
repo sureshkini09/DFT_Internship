@@ -1,0 +1,13 @@
+# Cadence Genus(TM) Synthesis Solution, Version 20.11-s111_1, built Apr 26 2021 14:57:38
+
+# Date: Mon Apr 28 16:28:05 2025
+# Host: APL3.kletech.ac.in (x86_64 w/Linux 4.18.0-553.47.1.el8_10.x86_64) (6cores*12cpus*1physical cpu*12th Gen Intel(R) Core(TM) i5-12500 18432KB)
+# OS:   Red Hat Enterprise Linux release 8.10 (Ootpa)
+
+source run.tcl
+read_hdl cpu_sys/cpu_sys.v
+et_attribute target_library "NangateOpenCellLibrary_slow_conditional_ccs.lib"
+set_attribute target_library "NangateOpenCellLibrary_slow_conditional_ccs.lib"
+set_attribute target_library 'memories/rf_2p_136d_74w_1m_4b.lib memories/rf_2p_256d_76w_1m_4b.lib memories/rf_2p_512d_76w_2m_4b.lib memories/sram_sp_16384d_36w_16m_8b.lib memories/sram_sp_32768d_33w_16m_8b.lib memories/sram_sp_512d_32w_4m_2b.lib"
+set_attribute link_library "/home/01fe21bec255/DFT_Internship/inputs/lib/slow.lib memories/rf_2p_136d_74w_1m_4b.lib memories/rf_2p_256d_76w_1m_4b.lib memories/rf_2p_512d_76w_2m_4b.lib memories/sram_sp_16384d_36w_16m_8b.lib memories/sram_sp_32768d_33w_16m_8b.lib memories/sram_sp_512d_32w_4m_2b.lib"
+elaborate

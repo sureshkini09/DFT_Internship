@@ -1,0 +1,13 @@
+FaultInformation {
+ version : 1;
+ FaultType (Stuck) {
+  FaultList {
+   FaultCollapsing : FALSE;
+   Format : Identifier, Class, Location;
+   Instance ("") {
+      0,  UO.UNS,    "/HOLDX1/Y";
+      1,  UO.UNS,    "/HOLDX1/Y";
+   }
+  }
+ }
+}

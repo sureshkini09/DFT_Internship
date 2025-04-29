@@ -1,0 +1,63 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2021 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+Version: 20.11-s111_1, built Mon Apr 26 02:27:38 PDT 2021
+Options: 
+Date:    Mon Apr 28 16:18:26 2025
+Host:    APL3.kletech.ac.in (x86_64 w/Linux 4.18.0-553.47.1.el8_10.x86_64) (6cores*12cpus*1physical cpu*12th Gen Intel(R) Core(TM) i5-12500 18432KB) (32336164KB)
+PID:     53146
+OS:      Red Hat Enterprise Linux release 8.10 (Ootpa)
+
+Checkout succeeded: Genus_Synthesis/EF29107615D411912BD3
+	License file: 5280@14.139.1.126
+	License Server: 5280@14.139.1.126
+Checking out license: Genus_Synthesis
+
+
+***********************************************************************************************************
+***********************************************************************************************************
+
+
+
+Loading tool scripts...
+Finished loading tool scripts (5 seconds elapsed).
+
+WARNING: This version of the tool is 1463 days old.
+@genus:root: 1> source run.tcl
+Sourcing './run.tcl' (Mon Apr 28 16:18:37 IST 2025)...
+#@ Begin verbose source ./run.tcl
+@file(run.tcl) 1: set_db common_ui false
+  Setting attribute of root '/': 'common_ui' = false
+
+Threads Configured:8
+
+Reading library /home/01fe21bec255/DFT_Internship/inputs/lib/NangateOpenCellLibrary_slow_conditional_ccs.libError   : Library name multiply defined. [LBR-19] [set_attribute]
+        : The nominal PVT of library 'NangateOpenCellLibrary', file '/home/01fe21bec255/DFT_Internship/inputs/lib/NangateOpenCellLibrary_fast_conditional_ccs.lib' does not match with the nominal PVT of same name library being read now.
+        : To read both libraries, change the name of the library in the second library file and then reload the library.
+Error   : Fail to load library file. [LBR-522] [set_attribute]
+        : Attempt to read .lib library '/home/01fe21bec255/DFT_Internship/inputs/lib/NangateOpenCellLibrary_slow_conditional_ccs.lib' failed (File /home/01fe21bec255/DFT_Internship/inputs/lib/NangateOpenCellLibrary_slow_conditional_ccs.lib)
+        : Fix the library read error, then reload the library.
+
+  Message Summary for Library all 8 libraries:
+  ********************************************
+  Fail to load library file. [LBR-522]: 1
+  An unsupported construct was detected in this library. [LBR-40]: 14
+  Library name multiply defined. [LBR-19]: 1
+  ********************************************
+ 
+Bad technology libraries.
+Error   : The data value for this attribute is invalid. [TUI-24] [set_attribute]
+        : The value '/home/01fe21bec255/DFT_Internship/inputs/lib/NangateOpenCellLibrary_fast_conditional_ccs.lib /home/01fe21bec255/DFT_Internship/inputs/lib/NangateOpenCellLibrary_slow_conditional_ccs.lib memories/rf_2p_136d_74w_1m_4b.lib memories/rf_2p_256d_76w_1m_4b.lib memories/rf_2p_512d_76w_2m_4b.lib memories/sram_sp_16384d_36w_16m_8b.lib memories/sram_sp_32768d_33w_16m_8b.lib memories/sram_sp_512d_32w_4m_2b.lib' cannot be set for attribute 'target_library'.
+        : To see the usage/description for this attribute, type '::legacy::set_attribute -h <attr_name> *' (in legacy UI mode) or 'help * <attr_name> -detail' (in CUI mode).
+#@ End verbose source ./run.tcl
+1
+legacy_genus:/> source run.tcl
+Sourcing './run.tcl' (Mon Apr 28 16:27:12 IST 2025)...
+Error   : The tool is running in legacy mode. [TUI-199] [set_db]
+        : Command 'set_db' is not supported in legacy mode.
+        : The command is not supported.
+1
+legacy_genus:/> exit
+Normal exit.

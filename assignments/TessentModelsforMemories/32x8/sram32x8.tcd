@@ -1,0 +1,43 @@
+MemoryTemplate(SPRAM_32x8) {
+  MemoryType             : SRAM;
+  CellName               : SPRAM_32x8;
+  LogicalPorts           : 1RW;
+  OperationSet           : Sync;
+  Algorithm              : SMarch;
+  BitGrouping            : 1;
+  NumberOfWords          : 32;
+  NumberOfBits           : 8;
+  ObservationLogic       : Off;
+  InternalScanLogic      : Off;
+  ShadowRead             : Off;
+  TransparentMode        : None;
+  MinHold                : 0.00;
+  MilliWattsPerMegaHertz : 0.0;
+
+  AddressCounter {
+    Function(Address) {
+      LogicalAddressMap {
+        ColumnAddress[1:0] : Address[0:1];
+        RowAddress   [2:0] : Address[4:2];
+      }
+    }
+    Function(RowAddress)    { CountRange [0:7]; }
+    Function(ColumnAddress) { CountRange [0:3]; }
+  }
+
+  PhysicalAddressMap {
+    ColumnAddress[0] : c[0];
+    ColumnAddress[1] : c[1];
+    RowAddress[0]    : r[0];
+    RowAddress[1]    : r[1];
+    RowAddress[2]    : r[2];
+  }
+
+  Port(A[4:0]) { Direction : Input;  Function : Address;   }
+  Port(CE) { Direction : Input;  Function : Clock;  Polarity : ActiveHigh; }
+  Port(WEB) { Direction : Input;  Function : WriteEnable;  Polarity : ActiveLow; }
+  Port(OEB) { Direction : Input;  Function : OutputEnable;  Polarity : ActiveLow; }
+  Port(CSB) { Direction : Input;  Function : Select;  Polarity : ActiveLow; }
+  Port(I[7:0]) { Direction : Input;  Function : Data;   }
+  Port(O[7:0]) { Direction : Output;  Function : Data;   }
+}

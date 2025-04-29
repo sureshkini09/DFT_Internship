@@ -1,0 +1,57 @@
+// Tessent Memory Library File for 32x8 SRAM
+// Generated on April 28, 2025
+
+MEMORY SPRAM_32x8 {
+TYPE = SRAM;
+DESCRIPTION = "Single-port SRAM, 32 words, 8-bit data width";
+
+SIZE {
+
+WORDS = 32;
+BITS = 8;
+ADDRESS_BITS = 5;
+}
+
+PORTS {
+PORT rw {
+TYPE = READ_WRITE;
+PINS {
+ADDRESS = A[4:0];
+DATA_IN = D[7:0];
+DATA_OUT = Q[7:0];
+WRITE_ENABLE = WE;
+CHIP_ENABLE = CE;
+CLOCK = CLK;
+}
+}
+}
+
+OPERATION {
+READ {
+ENABLE = (CE == 1, WE == 0, CLK == rising);
+OUTPUT = Q[31:0];
+}
+WRITE {
+ENABLE = (CE == 1, WE == 1, CLK == rising);
+INPUT = D[31:0];
+}
+}s
+
+TIMING {
+
+CLOCK_PERIOD = 5.0ns; // Example: 200 MHz clock
+SETUP_ADDRESS = 0.5ns;
+HOLD_ADDRESS = 0.2ns;
+SETUP_DATA = 0.5ns;
+HOLD_DATA = 0.2ns;
+SETUP_CONTROL = 0.5ns;
+HOLD_CONTROL = 0.2ns;
+ACCESS_TIME = 2.0ns; // Time from clock edge to valid Q
+}
+
+BIST {
+ALGORITHM = MARCH_C; // Example: Standard March C algorithm
+DIAGNOSTIC = FALSE;
+REDUNDANCY = NONE;
+}
+}
