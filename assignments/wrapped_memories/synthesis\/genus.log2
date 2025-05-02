@@ -1,0 +1,64 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2021 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+Version: 20.11-s111_1, built Mon Apr 26 02:27:38 PDT 2021
+Options: 
+Date:    Fri May 02 18:28:17 2025
+Host:    APL9.kletech.ac.in (x86_64 w/Linux 4.18.0-425.3.1.el8.x86_64) (6cores*12cpus*1physical cpu*12th Gen Intel(R) Core(TM) i5-12500 18432KB) (32404148KB)
+PID:     211306
+OS:      Red Hat Enterprise Linux release 8.7 (Ootpa)
+
+Checkout succeeded: Genus_Synthesis/EF29107615D411912BD3
+	License file: 5280@14.139.1.126
+	License Server: 5280@14.139.1.126
+Checking out license: Genus_Synthesis (3 seconds elapsed).
+
+
+***********************************************************************************************************
+***********************************************************************************************************
+
+
+
+Loading tool scripts...
+Finished loading tool scripts (4 seconds elapsed).
+
+WARNING: This version of the tool is 1467 days old.
+@genus:root: 1> read_libs /jk/SCLPDK_V3.0_KIT/scl180/memory/spram/6M1L/SP_SRAM_spram_8192_32/spram_8192_32_min.lib read_lib /jk/SCLPDK_V3.0_KIT/scl180/memory/spram/4M1L/SPRAM_64x64/SPRAM_64x64_min.lib /jk/SCLPDK_V3.0_KIT/scl180/memory/spram/4M1L/SPRAM_64x64/SCL_SPRAM_64x64_min.lib ../../../inputs/lib/slow.lib
+Error   : File error. [FILE-100] [::legacy::set_attribute]
+        : Cannot open file 'read_lib'
+        : Make sure that the file is a readable regular file and has the specified name.
+Error   : File error. [FILE-100] [::legacy::set_attribute]
+        : Cannot open file '/jk/SCLPDK_V3.0_KIT/scl180/memory/spram/4M1L/SPRAM_64x64/SPRAM_64x64_min.lib'. File not found.
+Error   : A library file does not exist. [LBR-68] [::legacy::set_attribute]
+        : File 'read_lib /jk/SCLPDK_V3.0_KIT/scl180/memory/spram/4M1L/SPRAM_64x64/SPRAM_64x64_min.lib' could not be found. File '<none>' was the last file that was successfully read in.
+        : Make sure that the library file exists or check for a typo in the file name.
+Error   : The data value for this attribute is invalid. [TUI-24] [::legacy::set_attribute]
+        : The value '  { /jk/SCLPDK_V3.0_KIT/scl180/memory/spram/6M1L/SP_SRAM_spram_8192_32/spram_8192_32_min.lib }  { read_lib }  { /jk/SCLPDK_V3.0_KIT/scl180/memory/spram/4M1L/SPRAM_64x64/SPRAM_64x64_min.lib }  { /jk/SCLPDK_V3.0_KIT/scl180/memory/spram/4M1L/SPRAM_64x64/SCL_SPRAM_64x64_min.lib }  { ../../../inputs/lib/slow.lib } ' cannot be set for attribute 'library'.
+        : To see the usage/description for this attribute, type '::legacy::set_attribute -h <attr_name> *' (in legacy UI mode) or 'help * <attr_name> -detail' (in CUI mode).
+1
+@genus:root: 2> read_libs /jk/SCLPDK_V3.0_KIT/scl180/memory/spram/6M1L/SP_SRAM_spram_8192_32/spram_8192_32_min.lib read_lib
+Error   : File error. [FILE-100] [::legacy::set_attribute]
+        : Cannot open file 'read_lib'
+Error   : A library file does not exist. [LBR-68] [::legacy::set_attribute]
+        : File 'read_lib' could not be found. File '<none>' was the last file that was successfully read in.
+Error   : The data value for this attribute is invalid. [TUI-24] [::legacy::set_attribute]
+        : The value '  { /jk/SCLPDK_V3.0_KIT/scl180/memory/spram/6M1L/SP_SRAM_spram_8192_32/spram_8192_32_min.lib }  { read_lib } ' cannot be set for attribute 'library'.
+1
+@genus:root: 3> read_libs /jk/SCLPDK_V3.0_KIT/scl180/memory/spram/6M1L/SP_SRAM_spram_8192_32/spram_8192_32_min.lib
+
+Threads Configured:3
+
+  Message Summary for Library spram_8192_32_min.lib:
+  **************************************************
+  An unsupported construct was detected in this library. [LBR-40]: 3
+  **************************************************
+ 
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (0.800000, 1.980000, -40.000000) in library 'spram_8192_32_min.lib'.
+        : The nominal operating condition is represented, either by the nominal PVT values specified in the library source (via nom_process,nom_voltage and nom_temperature respectively), or by the default PVT values (1.0,1.0,1.0).
+@genus:root: 4> read_libs /jk/SCLPDK_V3.0_KIT/scl180/memory/spram/4M1L/SPRAM_64x64/SPRAM_64x64_min.lib
+Cannot use read_libs after read_mmmc
+@genus:root: 5> exit
+Normal exit.
